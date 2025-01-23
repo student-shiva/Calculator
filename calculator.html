@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculators</title>
+    <style>
+     
+        .container{
+            margin: auto;
+            border: 2px solid black;
+            padding: 5px;
+            max-height: 800px;
+            max-width: 400px;
+            border-radius: 20px;
+            background-color: gray;
+            color: white;
+        }
+
+        .text {
+            text-align: center;
+        }
+
+        .row {
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            padding: 10px 0;        
+            border-radius: 10px;
+
+        }
+        .camara {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+        .camara .cam {
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid black;
+            height: 12px;
+            width: 12px;
+            border-radius: 100%;
+        }
+        .cam > .point {
+            height: 1px;
+            width: 1px;
+            border: 2px solid black;
+            border-radius: 50%;
+
+        }
+
+        
+         .row input{
+            width: 390px;
+            padding: 12px 0;
+            font-size: 24px;
+            border-radius: 10px;
+         }
+        .button {
+            width: 74px;
+            padding: 16px 40px;
+            margin: 0 10px;
+            opacity: 0.4;
+            color: red;
+            border: 2px solid black;
+            border-radius: 9px;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            transition: all 1s ease 0s;
+        }
+        .button:hover{
+            background-color: red;
+            color:white;
+        }
+        .buttonss {
+            display: flex;
+            justify-content: space-around;
+            align-items:center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="camara">
+            <div class="cam">
+                <div class="point"></div>
+            </div>
+        </div>
+        <div class="text">
+            <h1>Welcome to my Calculator</h1>
+        </div>
+        <div class="row">
+            <input class="input" type="text">
+        </div>
+        <div class="row">
+            <button class="button">AC</button>
+            <button class="button">%</button>
+            <button class="button">/</button>
+            <button class="button">b</button>
+        </div>
+
+        <div class="row">
+            <button class="button">7</button>
+            <button class="button">8</button>
+            <button class="button">9</button>
+            <button class="button">+</button>
+        </div>
+
+        <div class="row">
+            <button class="button">4</button>
+            <button class="button">5</button>
+            <button class="button">6</button>
+            <button class="button">-</button>
+        </div>
+
+        <div class="row">
+            <button class="button">1</button>
+            <button class="button">2</button>
+            <button class="button">4</button>
+            <button class="button">*</button>
+        </div>
+
+        <div class="row">
+            <button class="button">0</button>
+            <button class="button">.</button>
+            <button class="button">#</button>
+            <button class="button">=</button>
+        </div>
+    </div>
+    <script>
+     
+     let string = "";
+     let button = document.querySelectorAll('.button')
+     console.log(button)
+     Array.from(button).forEach((button) => {
+        button.addEventListener('click', (e) =>{
+            if(e.target.innerHTML == "="){
+                string = eval(string)
+                document.querySelector('input').value = string;
+            }
+            else if(e.target.innerHTML =="AC"){
+             string = "";
+             document.querySelector('input').value = string;
+            }
+            else {
+                console.log(e.target);
+                string = string + e.target.innerHTML
+                document.querySelector('input').value = string;
+            }
+        })
+        console.log(button);
+     })
+    </script>
+</body>
+
+</html>
